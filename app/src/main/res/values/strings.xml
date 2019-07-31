@@ -1,4 +1,6 @@
 <resources>
-    <string name="app_name">Activity 栈</string>
-    <string name="accessibility_service_description">开启功能, 以跟踪栈顶 Activity</string>
+    <string name="app_name">哆啦A梦</string>
+    <string name="accessibility_service_description">开启功能，以跟踪栈顶 Activity</string>
+    <string name="permission_float">请先授予"哆啦A梦"悬浮窗权限</string>
+    <string name="permission_accessibility">请先开启"哆啦A梦"的辅助功能</string>
 </resources>

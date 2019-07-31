@@ -1,4 +1,4 @@
-package com.fashare.activitytracker;
+package com.robust.devtool;
 
 import android.accessibilityservice.AccessibilityService;
 import android.content.Intent;
@@ -18,25 +18,14 @@ public class TrackerService extends AccessibilityService {
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.d(TAG, "onCreate");
+        TrackerWindowManager.getInstance().showFloat();
     }
 
-    private void initTrackerWindowManager() {
-        if (mTrackerWindowManager == null)
-            mTrackerWindowManager = new TrackerWindowManager(this);
-    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "onStartCommand");
-        initTrackerWindowManager();
-
-        String command = intent.getStringExtra(COMMAND);
-        if (command != null) {
-            if (command.equals(COMMAND_OPEN))
-                mTrackerWindowManager.addView();
-            else if (command.equals(COMMAND_CLOSE))
-                mTrackerWindowManager.removeView();
-        }
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -66,6 +55,7 @@ public class TrackerService extends AccessibilityService {
     public void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy");
+        TrackerWindowManager.getInstance().hideFloat();
     }
 
     public static class ActivityChangedEvent {

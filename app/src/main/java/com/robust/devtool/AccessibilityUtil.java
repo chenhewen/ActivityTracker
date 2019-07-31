@@ -1,4 +1,4 @@
-package com.fashare.activitytracker;
+package com.robust.devtool;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,7 +17,7 @@ public class AccessibilityUtil {
             context.startActivity(
                     new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
             );
-            Toast.makeText(context, "请先开启 \"Activity 栈\" 的辅助功能", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, R.string.permission_accessibility, Toast.LENGTH_LONG).show();
             return false;
         }
         return true;

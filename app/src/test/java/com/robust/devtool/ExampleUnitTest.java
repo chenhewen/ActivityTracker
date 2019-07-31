@@ -1,4 +1,4 @@
-package com.fashare.activitytracker;
+package com.robust.devtool;
 
 import org.junit.Test;
 
