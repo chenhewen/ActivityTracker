@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import de.greenrobot.event.EventBus;
 
@@ -36,6 +37,15 @@ public class FloatingView extends LinearLayout {
         mTvPackageName = (TextView) findViewById(R.id.tv_package_name);
         mTvClassName = (TextView) findViewById(R.id.tv_class_name);
         mIvClose = (ImageView) findViewById(R.id.iv_close);
+
+        mTvPackageName.setOnLongClickListener(new OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                String text = mTvPackageName.getText().toString();
+                ClipboardUtil.copyText(mContext, "", text, true);
+                return true;
+            }
+        });
 
         mIvClose.setOnClickListener(new OnClickListener() {
             @Override
